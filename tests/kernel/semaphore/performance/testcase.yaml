@@ -1,0 +1,6 @@
+tests:
+  kernel.semaphore.performance:
+    tags:
+      - kernel
+      - userspace
+      - smp
