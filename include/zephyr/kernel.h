@@ -3441,6 +3441,11 @@ struct k_sem {
 #ifdef CONFIG_OBJ_CORE_SEM
 	struct k_obj_core  obj_core;
 #endif
+
+#ifdef CONFIG_SMP
+	struct k_spinlock lock;
+#endif
+
 	/** @endcond */
 };
 

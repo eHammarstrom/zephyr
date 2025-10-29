@@ -29,6 +29,7 @@
 #include <zephyr/tracing/tracing.h>
 #include <zephyr/sys/check.h>
 
+#ifndef CONFIG_SMP
 /* We use a system-wide lock to synchronize semaphores, which has
  * unfortunate performance impact vs. using a per-object lock
  * (semaphores are *very* widely used).  But per-object locks require
@@ -37,10 +38,47 @@
  * and not a spinlock per se.  Useful optimization for the future...
  */
 static struct k_spinlock lock;
+#endif
 
 #ifdef CONFIG_OBJ_CORE_SEM
 static struct k_obj_type obj_type_sem;
 #endif /* CONFIG_OBJ_CORE_SEM */
+
+static inline k_spinlock_key_t sem_spin_lock(struct k_sem *sem)
+{
+#ifdef CONFIG_SMP
+	return k_spin_lock(&sem->lock);
+#else
+	return k_spin_lock(&lock);
+#endif
+}
+
+static inline void sem_spin_unlock(struct k_sem *sem, k_spinlock_key_t key)
+{
+#ifdef CONFIG_SMP
+	k_spin_unlock(&sem->lock, key);
+#else
+	k_spin_unlock(&lock, key);
+#endif
+}
+
+static inline void sem_reschedule(struct k_sem *sem, k_spinlock_key_t key)
+{
+#ifdef CONFIG_SMP
+	z_reschedule(&sem->lock, key);
+#else
+	z_reschedule(&lock, key);
+#endif
+}
+
+static inline int sem_pend_curr(struct k_sem *sem, k_spinlock_key_t key, k_timeout_t timeout)
+{
+#ifdef CONFIG_SMP
+	return z_pend_curr(&sem->lock, key, &sem->wait_q, timeout);
+#else
+	return z_pend_curr(&lock, key, &sem->wait_q, timeout);
+#endif
+}
 
 int z_impl_k_sem_init(struct k_sem *sem, unsigned int initial_count,
 		      unsigned int limit)
@@ -69,6 +107,10 @@ int z_impl_k_sem_init(struct k_sem *sem, unsigned int initial_count,
 	k_obj_core_init_and_link(K_OBJ_CORE(sem), &obj_type_sem);
 #endif /* CONFIG_OBJ_CORE_SEM */
 
+#ifdef CONFIG_SMP
+	sem->lock = (struct k_spinlock) {};
+#endif
+
 	return 0;
 }
 
@@ -94,7 +136,7 @@ static inline bool handle_poll_events(struct k_sem *sem)
 
 void z_impl_k_sem_give(struct k_sem *sem)
 {
-	k_spinlock_key_t key = k_spin_lock(&lock);
+	k_spinlock_key_t key = sem_spin_lock(sem);
 	struct k_thread *thread;
 	bool resched;
 
@@ -112,9 +154,9 @@ void z_impl_k_sem_give(struct k_sem *sem)
 	}
 
 	if (unlikely(resched)) {
-		z_reschedule(&lock, key);
+		sem_reschedule(sem, key);
 	} else {
-		k_spin_unlock(&lock, key);
+		sem_spin_unlock(sem, key);
 	}
 
 	SYS_PORT_TRACING_OBJ_FUNC_EXIT(k_sem, give, sem);
@@ -136,26 +178,26 @@ int z_impl_k_sem_take(struct k_sem *sem, k_timeout_t timeout)
 	__ASSERT(((arch_is_in_isr() == false) ||
 		  K_TIMEOUT_EQ(timeout, K_NO_WAIT)), "");
 
-	k_spinlock_key_t key = k_spin_lock(&lock);
+	k_spinlock_key_t key = sem_spin_lock(sem);
 
 	SYS_PORT_TRACING_OBJ_FUNC_ENTER(k_sem, take, sem, timeout);
 
 	if (likely(sem->count > 0U)) {
 		sem->count--;
-		k_spin_unlock(&lock, key);
+		sem_spin_unlock(sem, key);
 		ret = 0;
 		goto out;
 	}
 
 	if (K_TIMEOUT_EQ(timeout, K_NO_WAIT)) {
-		k_spin_unlock(&lock, key);
+		sem_spin_unlock(sem, key);
 		ret = -EBUSY;
 		goto out;
 	}
 
 	SYS_PORT_TRACING_OBJ_FUNC_BLOCKING(k_sem, take, sem, timeout);
 
-	ret = z_pend_curr(&lock, key, &sem->wait_q, timeout);
+	ret = sem_pend_curr(sem, key, timeout);
 
 out:
 	SYS_PORT_TRACING_OBJ_FUNC_EXIT(k_sem, take, sem, timeout, ret);
@@ -166,7 +208,7 @@ out:
 void z_impl_k_sem_reset(struct k_sem *sem)
 {
 	struct k_thread *thread;
-	k_spinlock_key_t key = k_spin_lock(&lock);
+	k_spinlock_key_t key = sem_spin_lock(sem);
 	bool resched = false;
 
 	while (true) {
@@ -185,9 +227,9 @@ void z_impl_k_sem_reset(struct k_sem *sem)
 	resched = handle_poll_events(sem) || resched;
 
 	if (resched) {
-		z_reschedule(&lock, key);
+		sem_reschedule(sem, key);
 	} else {
-		k_spin_unlock(&lock, key);
+		sem_spin_unlock(sem, key);
 	}
 }
 
