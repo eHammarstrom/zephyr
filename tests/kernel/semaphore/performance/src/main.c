@@ -26,7 +26,12 @@ static void thread_fn(void *p1, void *p2, void *p3)
 	ARG_UNUSED(p3);
 
 	for (int i = 0; i < NUM_LOOPS; i++) {
-		k_sem_take(sem, K_FOREVER);
+		int rc;
+
+		do {
+			rc = k_sem_take(sem, K_NO_WAIT);
+		} while (rc != 0);
+
 		k_sem_give(sem);
 	}
 }
