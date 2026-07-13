@@ -428,9 +428,9 @@ static struct stack_geometry compute_stack_geometry(k_thread_stack_t *stack,
 		 * this particular overflow can be seen by static
 		 * analysis so needs to be handled somehow.
 		 */
-		if (K_KERNEL_STACK_RESERVED > geo.obj_size) {
-			k_panic();
-		}
+		ZPANIC(K_KERNEL_STACK_RESERVED > geo.obj_size,
+		       "stack size %zu is too small, min is %zu",
+		       stack_size, K_KERNEL_STACK_RESERVED);
 #endif
 	}
 
@@ -610,11 +610,8 @@ static void setup_shadow_stack(struct k_thread *new_thread,
 			ret = k_thread_hw_shadow_stack_attach(new_thread,
 							      stk_to_hw_shstk->shstk_addr,
 							      stk_to_hw_shstk->size);
-			if (ret != 0) {
-				LOG_ERR("Could not set thread %p shadow stack %p, got error %d",
-					new_thread, stk_to_hw_shstk->shstk_addr, ret);
-				k_panic();
-			}
+			ZPANIC(ret != 0, "Could not set thread %p shadow stack %p, got error %d",
+			       new_thread, stk_to_hw_shstk->shstk_addr, ret);
 			break;
 		}
 	}
@@ -635,31 +632,22 @@ static void setup_shadow_stack(struct k_thread *new_thread,
 			uintptr_t stack_index = stack_offset / stk_to_hw_shstk->stack_size;
 			uintptr_t addr;
 
-			if (stack_index >= stk_to_hw_shstk->nmemb) {
-				LOG_ERR("Could not find shadow stack for thread %p, stack %p",
-					new_thread, stack);
-				k_panic();
-			}
+			ZPANIC(stack_index >= stk_to_hw_shstk->nmemb,
+			       "Could not find shadow stack for thread %p, stack %p", new_thread, stack);
 
 			addr = stk_to_hw_shstk->shstk_addr +
 				stk_to_hw_shstk->shstk_size * stack_index;
 			ret = k_thread_hw_shadow_stack_attach(new_thread,
 							      (arch_thread_hw_shadow_stack_t *)addr,
 							      stk_to_hw_shstk->shstk_size);
-			if (ret != 0) {
-				LOG_ERR("Could not set thread %p shadow stack 0x%lx, got error %d",
-					new_thread, stk_to_hw_shstk->shstk_addr, ret);
-				k_panic();
-			}
+
+			ZPANIC(ret != 0, "Could not set thread %p shadow stack 0x%lx, got error %d",
+			       new_thread, stk_to_hw_shstk->shstk_addr, ret);
 			break;
 		}
 	}
 
-	if (ret == -ENOENT) {
-		LOG_ERR("Could not find shadow stack for thread %p, stack %p",
-			new_thread, stack);
-		k_panic();
-	}
+	ZPANIC(ret == -ENOENT, "Could not find shadow stack for thread %p, stack %p", new_thread, stack);
 }
 #else
 /* No-op stub used when hardware shadow stacks are not configured. */
@@ -1726,10 +1714,7 @@ void z_thread_abort(struct k_thread *thread)
 
 	z_thread_halt(thread, key, true);
 
-	if (essential) {
-		__ASSERT(!essential, "aborted essential thread %p", thread);
-		k_panic();
-	}
+	ZPANIC(essential, "aborted essential thread %p", thread);
 }
 
 #if !defined(CONFIG_ARCH_HAS_THREAD_ABORT)
