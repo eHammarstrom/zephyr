@@ -429,9 +429,7 @@ void z_sched_add_to_waitq_locked(struct k_thread *thread, _wait_q_t *wait_q)
 
 static void add_thread_timeout(struct k_thread *thread, k_timeout_t timeout)
 {
-	if (!K_TIMEOUT_EQ(timeout, K_FOREVER)) {
-		z_add_thread_timeout(thread, timeout);
-	}
+	z_add_thread_timeout(thread, timeout);
 }
 
 static void pend_locked(struct k_thread *thread, _wait_q_t *wait_q,
