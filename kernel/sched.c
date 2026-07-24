@@ -42,7 +42,6 @@ __incoherent struct k_thread _thread_dummy;
 static ALWAYS_INLINE void update_cache(int preempt_ok);
 static ALWAYS_INLINE void halt_thread(struct k_thread *thread, uint8_t new_state,
 				      k_spinlock_key_t *key);
-static void add_to_waitq_locked(struct k_thread *thread, _wait_q_t *wait_q);
 
 /* Clear the halting bits (_THREAD_ABORTING and _THREAD_SUSPENDING) */
 static inline void clear_halting(struct k_thread *thread)
@@ -319,7 +318,7 @@ void z_thread_halt(struct k_thread *thread, k_spinlock_key_t key,
 		if (arch_is_in_isr()) {
 			thread_halt_spin(thread, key);
 		} else  {
-			add_to_waitq_locked(_current, wq);
+			z_sched_add_to_waitq_locked(_current, wq);
 			z_swap(&_sched_spinlock, key);
 		}
 		/* The target's next_up self-halt path passed NULL to
@@ -409,29 +408,25 @@ void z_sched_yield(void)
 }
 
 /* _sched_spinlock must be held */
-static void add_to_waitq_locked(struct k_thread *thread, _wait_q_t *wait_q)
+void z_sched_add_to_waitq_locked(struct k_thread *thread, _wait_q_t *wait_q)
 {
 	unready_thread(thread);
 	z_mark_thread_as_pending(thread);
 
 	SYS_PORT_TRACING_FUNC(k_thread, sched_pend, thread);
 
-	if (wait_q != NULL) {
-		thread->base.pended_on = wait_q;
-		_priq_wait_add(&wait_q->waitq, thread);
-	}
+	thread->base.pended_on = wait_q;
+	_priq_wait_add(&wait_q->waitq, thread);
 }
 
-void z_sched_add_to_waitq_locked(struct k_thread *thread, _wait_q_t *wait_q)
+static void pend_unqueued_locked(struct k_thread *thread, k_timeout_t timeout)
 {
-	add_to_waitq_locked(thread, wait_q);
-}
+	unready_thread(thread);
+	z_mark_thread_as_pending(thread);
 
-static void add_thread_timeout(struct k_thread *thread, k_timeout_t timeout)
-{
-	if (!K_TIMEOUT_EQ(timeout, K_FOREVER)) {
-		z_add_thread_timeout(thread, timeout);
-	}
+	SYS_PORT_TRACING_FUNC(k_thread, sched_pend, thread);
+
+	z_add_thread_timeout(thread, timeout);
 }
 
 static void pend_locked(struct k_thread *thread, _wait_q_t *wait_q,
@@ -440,8 +435,8 @@ static void pend_locked(struct k_thread *thread, _wait_q_t *wait_q,
 #ifdef CONFIG_KERNEL_COHERENCE
 	__ASSERT_NO_MSG(wait_q == NULL || sys_cache_is_mem_coherent(wait_q));
 #endif /* CONFIG_KERNEL_COHERENCE */
-	add_to_waitq_locked(thread, wait_q);
-	add_thread_timeout(thread, timeout);
+	z_sched_add_to_waitq_locked(thread, wait_q);
+	z_add_thread_timeout(thread, timeout);
 }
 
 void z_pend_thread(struct k_thread *thread, _wait_q_t *wait_q,
@@ -499,6 +494,27 @@ void z_thread_timeout(struct _timeout *timeout)
 	}
 }
 #endif /* CONFIG_SYS_CLOCK_EXISTS */
+
+int z_pend_curr_unqueued(struct k_spinlock *lock, k_spinlock_key_t key, k_timeout_t timeout)
+{
+#if defined(CONFIG_TIMESLICING) && defined(CONFIG_SWAP_NONATOMIC)
+	pending_current = _current;
+#endif /* CONFIG_TIMESLICING && CONFIG_SWAP_NONATOMIC */
+	__ASSERT_NO_MSG(sizeof(_sched_spinlock) == 0 || lock != &_sched_spinlock);
+
+	/* We do a "lock swap" prior to calling z_swap(), such that
+	 * the caller's lock gets released as desired.  But we ensure
+	 * that we hold the scheduler lock and leave local interrupts
+	 * masked until we reach the context switch.  z_swap() itself
+	 * has similar code; the duplication is because it's a legacy
+	 * API that doesn't expect to be called with scheduler lock
+	 * held.
+	 */
+	(void) k_spin_lock(&_sched_spinlock);
+	pend_unqueued_locked(_current, timeout);
+	k_spin_release(lock);
+	return z_swap(&_sched_spinlock, key);
+}
 
 int z_pend_curr(struct k_spinlock *lock, k_spinlock_key_t key,
 	       _wait_q_t *wait_q, k_timeout_t timeout)

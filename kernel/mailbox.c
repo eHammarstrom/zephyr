@@ -260,7 +260,7 @@ static int mbox_message_put(struct k_mbox *mbox, struct k_mbox_msg *tx_msg,
 			 * synchronous send: pend current thread (unqueued)
 			 * until the receiver consumes the message
 			 */
-			int ret = z_pend_curr(&mbox->lock, key, NULL, K_FOREVER);
+			int ret = z_pend_curr_unqueued(&mbox->lock, key, K_FOREVER);
 
 			SYS_PORT_TRACING_OBJ_FUNC_EXIT(k_mbox, message_put, mbox, timeout, ret);
 
