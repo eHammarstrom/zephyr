@@ -1,0 +1,1159 @@
+{
+    "environment": {
+        "options": {
+            "testsuite_root": [
+                "samples/bluetooth/mesh_demo",
+                "samples/bluetooth/hci_ipc",
+                "samples/bluetooth/audio/tmap_central",
+                "samples/bluetooth/audio/bap_unicast_client",
+                "samples/bluetooth/peripheral",
+                "samples/bluetooth/audio/tmap_bmr",
+                "samples/bluetooth/audio/tmap_bms",
+                "samples/net/sockets/echo_server",
+                "samples/bluetooth/beacon",
+                "samples/bluetooth/central_hr",
+                "samples/bluetooth/audio/bap_unicast_server",
+                "samples/bluetooth/audio/tmap_peripheral",
+                "samples/bluetooth/audio/hap_ha",
+                "samples/net/sockets/echo_client",
+                "tests/benchmarks/footprints"
+            ],
+            "platform": [
+                "bbc_microbit",
+                "nrf52840dk/nrf52840",
+                "it8xxx2_evb",
+                "nrf51dk/nrf51822",
+                "intel_ehl_crb",
+                "disco_l475_iot1",
+                "frdm_k64f",
+                "nrf5340dk/nrf5340/cpuapp",
+                "hifive1_revb",
+                "iotdk",
+                "nrf5340dk/nrf5340/cpunet"
+            ]
+        }
+    },
+    "testsuites": [
+        {
+            "name": "benchmark.kernel.footprints.default",
+            "arch": "arm",
+            "platform": "frdm_k64f/mk64f12",
+            "path": "tests/benchmarks/footprints",
+            "run_id": "00c2880f55795b78d630ef33429ede59",
+            "runnable": false,
+            "retries": 0,
+            "toolchain": "zephyr/gnu",
+            "status": "None",
+            "reason": "Unknown Instance status",
+            "build_time": "0.00",
+            "testcases": [
+                {
+                    "identifier": "benchmark.kernel.footprints.default",
+                    "status": "None"
+                }
+            ]
+        },
+        {
+            "name": "benchmark.kernel.footprints.userspace",
+            "arch": "arm",
+            "platform": "frdm_k64f/mk64f12",
+            "path": "tests/benchmarks/footprints",
+            "run_id": "7b3462e14c19d67c543a92622fb6c29e",
+            "runnable": false,
+            "retries": 0,
+            "toolchain": "zephyr/gnu",
+            "status": "None",
+            "reason": "Unknown Instance status",
+            "build_time": "0.00",
+            "testcases": [
+                {
+                    "identifier": "benchmark.kernel.footprints.userspace",
+                    "status": "None"
+                }
+            ]
+        },
+        {
+            "name": "benchmark.kernel.footprints.default",
+            "arch": "arm",
+            "platform": "disco_l475_iot1/stm32l475xx",
+            "path": "tests/benchmarks/footprints",
+            "run_id": "5ad955aee60369970c7f66def389a647",
+            "runnable": false,
+            "retries": 0,
+            "toolchain": "zephyr/gnu",
+            "status": "None",
+            "reason": "Unknown Instance status",
+            "build_time": "0.00",
+            "testcases": [
+                {
+                    "identifier": "benchmark.kernel.footprints.default",
+                    "status": "None"
+                }
+            ]
+        },
+        {
+            "name": "benchmark.kernel.footprints.userspace",
+            "arch": "arm",
+            "platform": "disco_l475_iot1/stm32l475xx",
+            "path": "tests/benchmarks/footprints",
+            "run_id": "bf7315ea133a576409cd54554f46f092",
+            "runnable": false,
+            "retries": 0,
+            "toolchain": "zephyr/gnu",
+            "status": "None",
+            "reason": "Unknown Instance status",
+            "build_time": "0.00",
+            "testcases": [
+                {
+                    "identifier": "benchmark.kernel.footprints.userspace",
+                    "status": "None"
+                }
+            ]
+        },
+        {
+            "name": "benchmark.kernel.footprints.default",
+            "arch": "arm",
+            "platform": "nrf5340dk/nrf5340/cpuapp",
+            "path": "tests/benchmarks/footprints",
+            "run_id": "e6e01007d5d9998013460bc13c331e96",
+            "runnable": false,
+            "retries": 0,
+            "toolchain": "zephyr/gnu",
+            "status": "None",
+            "reason": "Unknown Instance status",
+            "build_time": "0.00",
+            "testcases": [
+                {
+                    "identifier": "benchmark.kernel.footprints.default",
+                    "status": "None"
+                }
+            ]
+        },
+        {
+            "name": "benchmark.kernel.footprints.default",
+            "arch": "arm",
+            "platform": "nrf51dk/nrf51822",
+            "path": "tests/benchmarks/footprints",
+            "run_id": "8d3427cadc3feff1144bc120bef34852",
+            "runnable": false,
+            "retries": 0,
+            "toolchain": "zephyr/gnu",
+            "status": "None",
+            "reason": "Unknown Instance status",
+            "build_time": "0.00",
+            "testcases": [
+                {
+                    "identifier": "benchmark.kernel.footprints.default",
+                    "status": "None"
+                }
+            ]
+        },
+        {
+            "name": "benchmark.kernel.footprints.default",
+            "arch": "riscv",
+            "platform": "hifive1_revb/fe310_g002",
+            "path": "tests/benchmarks/footprints",
+            "run_id": "a3c2708c183c199b71fe4b9c600ef027",
+            "runnable": false,
+            "retries": 0,
+            "toolchain": "zephyr/gnu",
+            "status": "None",
+            "reason": "Unknown Instance status",
+            "build_time": "0.00",
+            "testcases": [
+                {
+                    "identifier": "benchmark.kernel.footprints.default",
+                    "status": "None"
+                }
+            ]
+        },
+        {
+            "name": "benchmark.kernel.footprints.default",
+            "arch": "x86",
+            "platform": "intel_ehl_crb/elkhart_lake",
+            "path": "tests/benchmarks/footprints",
+            "run_id": "56ebcae47f4e45cb1b52054f6dd708db",
+            "runnable": false,
+            "retries": 0,
+            "toolchain": "zephyr/gnu",
+            "status": "None",
+            "reason": "Unknown Instance status",
+            "build_time": "0.00",
+            "testcases": [
+                {
+                    "identifier": "benchmark.kernel.footprints.default",
+                    "status": "None"
+                }
+            ]
+        },
+        {
+            "name": "benchmark.kernel.footprints.userspace",
+            "arch": "x86",
+            "platform": "intel_ehl_crb/elkhart_lake",
+            "path": "tests/benchmarks/footprints",
+            "run_id": "57eaa9eff0c7c31b710f287f7b87e855",
+            "runnable": false,
+            "retries": 0,
+            "toolchain": "zephyr/gnu",
+            "status": "None",
+            "reason": "Unknown Instance status",
+            "build_time": "0.00",
+            "testcases": [
+                {
+                    "identifier": "benchmark.kernel.footprints.userspace",
+                    "status": "None"
+                }
+            ]
+        },
+        {
+            "name": "benchmark.kernel.footprints.pm",
+            "arch": "arm",
+            "platform": "frdm_k64f/mk64f12",
+            "path": "tests/benchmarks/footprints",
+            "run_id": "68cc9cc094edfebc7aa74fcf002603b7",
+            "runnable": false,
+            "retries": 0,
+            "toolchain": "zephyr/gnu",
+            "status": "None",
+            "reason": "Unknown Instance status",
+            "build_time": "0.00",
+            "testcases": [
+                {
+                    "identifier": "benchmark.kernel.footprints.pm",
+                    "status": "None"
+                }
+            ]
+        },
+        {
+            "name": "benchmark.kernel.footprints.pm",
+            "arch": "arm",
+            "platform": "disco_l475_iot1/stm32l475xx",
+            "path": "tests/benchmarks/footprints",
+            "run_id": "4f62c71bedad973097820e7d9cd7347f",
+            "runnable": false,
+            "retries": 0,
+            "toolchain": "zephyr/gnu",
+            "status": "None",
+            "reason": "Unknown Instance status",
+            "build_time": "0.00",
+            "testcases": [
+                {
+                    "identifier": "benchmark.kernel.footprints.pm",
+                    "status": "None"
+                }
+            ]
+        },
+        {
+            "name": "benchmark.kernel.footprints.pm",
+            "arch": "riscv",
+            "platform": "it8xxx2_evb/it81302bx",
+            "path": "tests/benchmarks/footprints",
+            "run_id": "14dce72bdc6ba2ec5dae16784dc13202",
+            "runnable": false,
+            "retries": 0,
+            "toolchain": "zephyr/gnu",
+            "status": "None",
+            "reason": "Unknown Instance status",
+            "build_time": "0.00",
+            "testcases": [
+                {
+                    "identifier": "benchmark.kernel.footprints.pm",
+                    "status": "None"
+                }
+            ]
+        },
+        {
+            "name": "benchmark.kernel.footprints.pm",
+            "arch": "arc",
+            "platform": "iotdk/arc_iot",
+            "path": "tests/benchmarks/footprints",
+            "run_id": "aa843ad172802db3c314f34347f12b6f",
+            "runnable": false,
+            "retries": 0,
+            "toolchain": "zephyr/gnu",
+            "status": "None",
+            "reason": "Unknown Instance status",
+            "build_time": "0.00",
+            "testcases": [
+                {
+                    "identifier": "benchmark.kernel.footprints.pm",
+                    "status": "None"
+                }
+            ]
+        },
+        {
+            "name": "sample.net.sockets.echo_client",
+            "arch": "arm",
+            "platform": "frdm_k64f/mk64f12",
+            "path": "samples/net/sockets/echo_client",
+            "run_id": "3dbeb2019b99c983c74653197e227100",
+            "runnable": false,
+            "retries": 0,
+            "toolchain": "zephyr/gnu",
+            "status": "None",
+            "reason": "Unknown Instance status",
+            "build_time": "0.00",
+            "testcases": [
+                {
+                    "identifier": "sample.net.sockets.echo_client",
+                    "status": "None"
+                }
+            ]
+        },
+        {
+            "name": "sample.net.sockets.echo_client.802154.rf2xx.arduino",
+            "arch": "arm",
+            "platform": "frdm_k64f/mk64f12",
+            "path": "samples/net/sockets/echo_client",
+            "run_id": "de96244882d85def7f318934576d4719",
+            "runnable": false,
+            "retries": 0,
+            "toolchain": "zephyr/gnu",
+            "status": "None",
+            "reason": "Unknown Instance status",
+            "build_time": "0.00",
+            "testcases": [
+                {
+                    "identifier": "sample.net.sockets.echo_client.802154.rf2xx.arduino",
+                    "status": "None"
+                }
+            ]
+        },
+        {
+            "name": "sample.net.sockets.echo_client.mcr20a",
+            "arch": "arm",
+            "platform": "frdm_k64f/mk64f12",
+            "path": "samples/net/sockets/echo_client",
+            "run_id": "8eca9b6284d6f17afb40dcf03ef3a13c",
+            "runnable": false,
+            "retries": 0,
+            "toolchain": "zephyr/gnu",
+            "status": "None",
+            "reason": "Unknown Instance status",
+            "build_time": "0.00",
+            "testcases": [
+                {
+                    "identifier": "sample.net.sockets.echo_client.mcr20a",
+                    "status": "None"
+                }
+            ]
+        },
+        {
+            "name": "sample.net.sockets.echo_server",
+            "arch": "arm",
+            "platform": "frdm_k64f/mk64f12",
+            "path": "samples/net/sockets/echo_server",
+            "run_id": "1100718f9fcc116ee78e81da1f024a82",
+            "runnable": false,
+            "retries": 0,
+            "toolchain": "zephyr/gnu",
+            "status": "None",
+            "reason": "Unknown Instance status",
+            "build_time": "0.00",
+            "testcases": [
+                {
+                    "identifier": "sample.net.sockets.echo_server",
+                    "status": "None"
+                }
+            ]
+        },
+        {
+            "name": "sample.net.sockets.echo_server.802154.rf2xx.arduino",
+            "arch": "arm",
+            "platform": "frdm_k64f/mk64f12",
+            "path": "samples/net/sockets/echo_server",
+            "run_id": "3a126ff47f5ca20296a497dcf102366b",
+            "runnable": false,
+            "retries": 0,
+            "toolchain": "zephyr/gnu",
+            "status": "None",
+            "reason": "Unknown Instance status",
+            "build_time": "0.00",
+            "testcases": [
+                {
+                    "identifier": "sample.net.sockets.echo_server.802154.rf2xx.arduino",
+                    "status": "None"
+                }
+            ]
+        },
+        {
+            "name": "sample.net.sockets.echo_server.mcr20a",
+            "arch": "arm",
+            "platform": "frdm_k64f/mk64f12",
+            "path": "samples/net/sockets/echo_server",
+            "run_id": "eb9c273caf5c896a48440d81c61ae93c",
+            "runnable": false,
+            "retries": 0,
+            "toolchain": "zephyr/gnu",
+            "status": "None",
+            "reason": "Unknown Instance status",
+            "build_time": "0.00",
+            "testcases": [
+                {
+                    "identifier": "sample.net.sockets.echo_server.mcr20a",
+                    "status": "None"
+                }
+            ]
+        },
+        {
+            "name": "sample.net.sockets.echo_server.usbd_cdc_ncm",
+            "arch": "arm",
+            "platform": "frdm_k64f/mk64f12",
+            "path": "samples/net/sockets/echo_server",
+            "run_id": "41e90a13c5dbdca5cabc99f37f201dd9",
+            "runnable": false,
+            "retries": 0,
+            "toolchain": "zephyr/gnu",
+            "status": "None",
+            "reason": "Unknown Instance status",
+            "build_time": "0.00",
+            "testcases": [
+                {
+                    "identifier": "sample.net.sockets.echo_server.usbd_cdc_ncm",
+                    "status": "None"
+                }
+            ]
+        },
+        {
+            "name": "sample.bluetooth.beacon-coex",
+            "arch": "arm",
+            "platform": "nrf52840dk/nrf52840",
+            "path": "samples/bluetooth/beacon",
+            "run_id": "0823d39f4eea8752f16d644e836120e5",
+            "runnable": false,
+            "retries": 0,
+            "toolchain": "zephyr/gnu",
+            "status": "None",
+            "reason": "Unknown Instance status",
+            "build_time": "0.00",
+            "testcases": [
+                {
+                    "identifier": "sample.bluetooth.beacon-coex",
+                    "status": "None"
+                }
+            ]
+        },
+        {
+            "name": "sample.bluetooth.central_hr.bt_ll_sw_split.extended",
+            "arch": "arm",
+            "platform": "nrf52840dk/nrf52840",
+            "path": "samples/bluetooth/central_hr",
+            "run_id": "e64a78ceaea8746fc06ca11afa6e5560",
+            "runnable": false,
+            "retries": 0,
+            "toolchain": "zephyr/gnu",
+            "status": "None",
+            "reason": "Unknown Instance status",
+            "build_time": "0.00",
+            "testcases": [
+                {
+                    "identifier": "sample.bluetooth.central_hr.bt_ll_sw_split.extended",
+                    "status": "None"
+                }
+            ]
+        },
+        {
+            "name": "sample.bluetooth.central_hr.bt_ll_sw_split.phy_coded",
+            "arch": "arm",
+            "platform": "nrf52840dk/nrf52840",
+            "path": "samples/bluetooth/central_hr",
+            "run_id": "73e9e2263366fac42ded3ee75f7f888a",
+            "runnable": false,
+            "retries": 0,
+            "toolchain": "zephyr/gnu",
+            "status": "None",
+            "reason": "Unknown Instance status",
+            "build_time": "0.00",
+            "testcases": [
+                {
+                    "identifier": "sample.bluetooth.central_hr.bt_ll_sw_split.phy_coded",
+                    "status": "None"
+                }
+            ]
+        },
+        {
+            "name": "sample.bluetooth.mesh_demo",
+            "arch": "arm",
+            "platform": "bbc_microbit/nrf51822",
+            "path": "samples/bluetooth/mesh_demo",
+            "run_id": "6b7ada201f303219459ec6d2cc7b838b",
+            "runnable": false,
+            "retries": 0,
+            "toolchain": "zephyr/gnu",
+            "status": "None",
+            "reason": "Unknown Instance status",
+            "build_time": "0.00",
+            "testcases": [
+                {
+                    "identifier": "sample.bluetooth.mesh_demo",
+                    "status": "None"
+                }
+            ]
+        },
+        {
+            "name": "sample.bluetooth.audio.unicast_client",
+            "arch": "arm",
+            "platform": "nrf5340dk/nrf5340/cpuapp",
+            "path": "samples/bluetooth/audio/bap_unicast_client",
+            "run_id": "2e79bcd96d7e869f1c54112f8148aadf",
+            "runnable": false,
+            "retries": 0,
+            "toolchain": "zephyr/gnu",
+            "status": "None",
+            "reason": "Unknown Instance status",
+            "build_time": "0.00",
+            "testcases": [
+                {
+                    "identifier": "sample.bluetooth.audio.unicast_client",
+                    "status": "None"
+                }
+            ]
+        },
+        {
+            "name": "sample.bluetooth.audio.unicast_server",
+            "arch": "arm",
+            "platform": "nrf5340dk/nrf5340/cpuapp",
+            "path": "samples/bluetooth/audio/bap_unicast_server",
+            "run_id": "ba86f233813fd75a99fa65f75c944a74",
+            "runnable": false,
+            "retries": 0,
+            "toolchain": "zephyr/gnu",
+            "status": "None",
+            "reason": "Unknown Instance status",
+            "build_time": "0.00",
+            "testcases": [
+                {
+                    "identifier": "sample.bluetooth.audio.unicast_server",
+                    "status": "None"
+                }
+            ]
+        },
+        {
+            "name": "sample.bluetooth.hci_ipc",
+            "arch": "arm",
+            "platform": "nrf5340dk/nrf5340/cpunet",
+            "path": "samples/bluetooth/hci_ipc",
+            "run_id": "9de9e17aa00de988918a533065a89729",
+            "runnable": false,
+            "retries": 0,
+            "toolchain": "zephyr/gnu",
+            "status": "None",
+            "reason": "Unknown Instance status",
+            "build_time": "0.00",
+            "testcases": [
+                {
+                    "identifier": "sample.bluetooth.hci_ipc",
+                    "status": "None"
+                }
+            ]
+        },
+        {
+            "name": "sample.bluetooth.hci_ipc.iso_broadcast.bt_ll_sw_split",
+            "arch": "arm",
+            "platform": "nrf5340dk/nrf5340/cpunet",
+            "path": "samples/bluetooth/hci_ipc",
+            "run_id": "c0159acaa0c4d3cd3b586b4301f2e224",
+            "runnable": false,
+            "retries": 0,
+            "toolchain": "zephyr/gnu",
+            "status": "None",
+            "reason": "Unknown Instance status",
+            "build_time": "0.00",
+            "testcases": [
+                {
+                    "identifier": "sample.bluetooth.hci_ipc.iso_broadcast.bt_ll_sw_split",
+                    "status": "None"
+                }
+            ]
+        },
+        {
+            "name": "sample.bluetooth.hci_ipc.iso_receive.bt_ll_sw_split",
+            "arch": "arm",
+            "platform": "nrf5340dk/nrf5340/cpunet",
+            "path": "samples/bluetooth/hci_ipc",
+            "run_id": "a2697bdfab6ab06ca98c0b723f944ca5",
+            "runnable": false,
+            "retries": 0,
+            "toolchain": "zephyr/gnu",
+            "status": "None",
+            "reason": "Unknown Instance status",
+            "build_time": "0.00",
+            "testcases": [
+                {
+                    "identifier": "sample.bluetooth.hci_ipc.iso_receive.bt_ll_sw_split",
+                    "status": "None"
+                }
+            ]
+        },
+        {
+            "name": "sample.bluetooth.hci_ipc.bis.bt_ll_sw_split",
+            "arch": "arm",
+            "platform": "nrf5340dk/nrf5340/cpunet",
+            "path": "samples/bluetooth/hci_ipc",
+            "run_id": "dcd3346a801ecaac30fc59dbb0e2e9a2",
+            "runnable": false,
+            "retries": 0,
+            "toolchain": "zephyr/gnu",
+            "status": "None",
+            "reason": "Unknown Instance status",
+            "build_time": "0.00",
+            "testcases": [
+                {
+                    "identifier": "sample.bluetooth.hci_ipc.bis.bt_ll_sw_split",
+                    "status": "None"
+                }
+            ]
+        },
+        {
+            "name": "sample.bluetooth.hci_ipc.iso_central.bt_ll_sw_split",
+            "arch": "arm",
+            "platform": "nrf5340dk/nrf5340/cpunet",
+            "path": "samples/bluetooth/hci_ipc",
+            "run_id": "d18afae907cf0ffabaec8ed6c7f5270d",
+            "runnable": false,
+            "retries": 0,
+            "toolchain": "zephyr/gnu",
+            "status": "None",
+            "reason": "Unknown Instance status",
+            "build_time": "0.00",
+            "testcases": [
+                {
+                    "identifier": "sample.bluetooth.hci_ipc.iso_central.bt_ll_sw_split",
+                    "status": "None"
+                }
+            ]
+        },
+        {
+            "name": "sample.bluetooth.hci_ipc.iso_peripheral.bt_ll_sw_split",
+            "arch": "arm",
+            "platform": "nrf5340dk/nrf5340/cpunet",
+            "path": "samples/bluetooth/hci_ipc",
+            "run_id": "8456053aa68315f5cbbc8425ed71b8af",
+            "runnable": false,
+            "retries": 0,
+            "toolchain": "zephyr/gnu",
+            "status": "None",
+            "reason": "Unknown Instance status",
+            "build_time": "0.00",
+            "testcases": [
+                {
+                    "identifier": "sample.bluetooth.hci_ipc.iso_peripheral.bt_ll_sw_split",
+                    "status": "None"
+                }
+            ]
+        },
+        {
+            "name": "sample.bluetooth.hci_ipc.cis.bt_ll_sw_split",
+            "arch": "arm",
+            "platform": "nrf5340dk/nrf5340/cpunet",
+            "path": "samples/bluetooth/hci_ipc",
+            "run_id": "b9baa5ecec17539174834dc0c57a20ed",
+            "runnable": false,
+            "retries": 0,
+            "toolchain": "zephyr/gnu",
+            "status": "None",
+            "reason": "Unknown Instance status",
+            "build_time": "0.00",
+            "testcases": [
+                {
+                    "identifier": "sample.bluetooth.hci_ipc.cis.bt_ll_sw_split",
+                    "status": "None"
+                }
+            ]
+        },
+        {
+            "name": "sample.bluetooth.hci_ipc.iso.bt_ll_sw_split",
+            "arch": "arm",
+            "platform": "nrf5340dk/nrf5340/cpunet",
+            "path": "samples/bluetooth/hci_ipc",
+            "run_id": "091aab3079189ede6adf454cd0798dd3",
+            "runnable": false,
+            "retries": 0,
+            "toolchain": "zephyr/gnu",
+            "status": "None",
+            "reason": "Unknown Instance status",
+            "build_time": "0.00",
+            "testcases": [
+                {
+                    "identifier": "sample.bluetooth.hci_ipc.iso.bt_ll_sw_split",
+                    "status": "None"
+                }
+            ]
+        },
+        {
+            "name": "sample.bluetooth.hci_ipc.df.bt_ll_sw_split",
+            "arch": "arm",
+            "platform": "nrf5340dk/nrf5340/cpunet",
+            "path": "samples/bluetooth/hci_ipc",
+            "run_id": "13d8c4e8c3e31265e1ec7eb8ea588b3e",
+            "runnable": false,
+            "retries": 0,
+            "toolchain": "zephyr/gnu",
+            "status": "None",
+            "reason": "Unknown Instance status",
+            "build_time": "0.00",
+            "testcases": [
+                {
+                    "identifier": "sample.bluetooth.hci_ipc.df.bt_ll_sw_split",
+                    "status": "None"
+                }
+            ]
+        },
+        {
+            "name": "sample.bluetooth.hci_ipc.df.no_phy_coded.bt_ll_sw_split",
+            "arch": "arm",
+            "platform": "nrf5340dk/nrf5340/cpunet",
+            "path": "samples/bluetooth/hci_ipc",
+            "run_id": "7e7014ff02671dc7a00616eea70b7e3d",
+            "runnable": false,
+            "retries": 0,
+            "toolchain": "zephyr/gnu",
+            "status": "None",
+            "reason": "Unknown Instance status",
+            "build_time": "0.00",
+            "testcases": [
+                {
+                    "identifier": "sample.bluetooth.hci_ipc.df.no_phy_coded.bt_ll_sw_split",
+                    "status": "None"
+                }
+            ]
+        },
+        {
+            "name": "sample.bluetooth.hci_ipc.mesh.bt_ll_sw_split",
+            "arch": "arm",
+            "platform": "nrf5340dk/nrf5340/cpunet",
+            "path": "samples/bluetooth/hci_ipc",
+            "run_id": "d47e3c22c1fa1fbc87fabce91f79d5e6",
+            "runnable": false,
+            "retries": 0,
+            "toolchain": "zephyr/gnu",
+            "status": "None",
+            "reason": "Unknown Instance status",
+            "build_time": "0.00",
+            "testcases": [
+                {
+                    "identifier": "sample.bluetooth.hci_ipc.mesh.bt_ll_sw_split",
+                    "status": "None"
+                }
+            ]
+        },
+        {
+            "name": "sample.bluetooth.hci_ipc",
+            "arch": "arm",
+            "platform": "nrf5340dk/nrf5340/cpunet",
+            "path": "samples/bluetooth/hci_ipc",
+            "run_id": "bcf021c1664d5d72e9eb404156226f50",
+            "runnable": false,
+            "retries": 0,
+            "toolchain": "zephyr/gnu",
+            "status": "None",
+            "reason": "Unknown Instance status",
+            "build_time": "0.00",
+            "testcases": [
+                {
+                    "identifier": "sample.bluetooth.hci_ipc",
+                    "status": "None"
+                }
+            ]
+        },
+        {
+            "name": "sample.bluetooth.hci_ipc.iso_broadcast.bt_ll_sw_split",
+            "arch": "arm",
+            "platform": "nrf5340dk/nrf5340/cpunet",
+            "path": "samples/bluetooth/hci_ipc",
+            "run_id": "69a1293edf333a285d0f76849fd75f02",
+            "runnable": false,
+            "retries": 0,
+            "toolchain": "zephyr/gnu",
+            "status": "None",
+            "reason": "Unknown Instance status",
+            "build_time": "0.00",
+            "testcases": [
+                {
+                    "identifier": "sample.bluetooth.hci_ipc.iso_broadcast.bt_ll_sw_split",
+                    "status": "None"
+                }
+            ]
+        },
+        {
+            "name": "sample.bluetooth.hci_ipc.iso_receive.bt_ll_sw_split",
+            "arch": "arm",
+            "platform": "nrf5340dk/nrf5340/cpunet",
+            "path": "samples/bluetooth/hci_ipc",
+            "run_id": "698e50c22b643fc58af73865bae250a4",
+            "runnable": false,
+            "retries": 0,
+            "toolchain": "zephyr/gnu",
+            "status": "None",
+            "reason": "Unknown Instance status",
+            "build_time": "0.00",
+            "testcases": [
+                {
+                    "identifier": "sample.bluetooth.hci_ipc.iso_receive.bt_ll_sw_split",
+                    "status": "None"
+                }
+            ]
+        },
+        {
+            "name": "sample.bluetooth.hci_ipc.bis.bt_ll_sw_split",
+            "arch": "arm",
+            "platform": "nrf5340dk/nrf5340/cpunet",
+            "path": "samples/bluetooth/hci_ipc",
+            "run_id": "383192ef1fee354a4927fbd8ef2d544c",
+            "runnable": false,
+            "retries": 0,
+            "toolchain": "zephyr/gnu",
+            "status": "None",
+            "reason": "Unknown Instance status",
+            "build_time": "0.00",
+            "testcases": [
+                {
+                    "identifier": "sample.bluetooth.hci_ipc.bis.bt_ll_sw_split",
+                    "status": "None"
+                }
+            ]
+        },
+        {
+            "name": "sample.bluetooth.hci_ipc.iso_central.bt_ll_sw_split",
+            "arch": "arm",
+            "platform": "nrf5340dk/nrf5340/cpunet",
+            "path": "samples/bluetooth/hci_ipc",
+            "run_id": "1a114a43e00435d99a569a07e9c306e8",
+            "runnable": false,
+            "retries": 0,
+            "toolchain": "zephyr/gnu",
+            "status": "None",
+            "reason": "Unknown Instance status",
+            "build_time": "0.00",
+            "testcases": [
+                {
+                    "identifier": "sample.bluetooth.hci_ipc.iso_central.bt_ll_sw_split",
+                    "status": "None"
+                }
+            ]
+        },
+        {
+            "name": "sample.bluetooth.hci_ipc.iso_peripheral.bt_ll_sw_split",
+            "arch": "arm",
+            "platform": "nrf5340dk/nrf5340/cpunet",
+            "path": "samples/bluetooth/hci_ipc",
+            "run_id": "b22ce618474af85d81752416abdd0695",
+            "runnable": false,
+            "retries": 0,
+            "toolchain": "zephyr/gnu",
+            "status": "None",
+            "reason": "Unknown Instance status",
+            "build_time": "0.00",
+            "testcases": [
+                {
+                    "identifier": "sample.bluetooth.hci_ipc.iso_peripheral.bt_ll_sw_split",
+                    "status": "None"
+                }
+            ]
+        },
+        {
+            "name": "sample.bluetooth.hci_ipc.cis.bt_ll_sw_split",
+            "arch": "arm",
+            "platform": "nrf5340dk/nrf5340/cpunet",
+            "path": "samples/bluetooth/hci_ipc",
+            "run_id": "c647cf810ee59cba2b624ec65144149c",
+            "runnable": false,
+            "retries": 0,
+            "toolchain": "zephyr/gnu",
+            "status": "None",
+            "reason": "Unknown Instance status",
+            "build_time": "0.00",
+            "testcases": [
+                {
+                    "identifier": "sample.bluetooth.hci_ipc.cis.bt_ll_sw_split",
+                    "status": "None"
+                }
+            ]
+        },
+        {
+            "name": "sample.bluetooth.hci_ipc.iso.bt_ll_sw_split",
+            "arch": "arm",
+            "platform": "nrf5340dk/nrf5340/cpunet",
+            "path": "samples/bluetooth/hci_ipc",
+            "run_id": "1b0da10f329dac3261a0c08278162b6d",
+            "runnable": false,
+            "retries": 0,
+            "toolchain": "zephyr/gnu",
+            "status": "None",
+            "reason": "Unknown Instance status",
+            "build_time": "0.00",
+            "testcases": [
+                {
+                    "identifier": "sample.bluetooth.hci_ipc.iso.bt_ll_sw_split",
+                    "status": "None"
+                }
+            ]
+        },
+        {
+            "name": "sample.bluetooth.hci_ipc.df.bt_ll_sw_split",
+            "arch": "arm",
+            "platform": "nrf5340dk/nrf5340/cpunet",
+            "path": "samples/bluetooth/hci_ipc",
+            "run_id": "bbc9e815fce74f7343f29f3c5c68e5fb",
+            "runnable": false,
+            "retries": 0,
+            "toolchain": "zephyr/gnu",
+            "status": "None",
+            "reason": "Unknown Instance status",
+            "build_time": "0.00",
+            "testcases": [
+                {
+                    "identifier": "sample.bluetooth.hci_ipc.df.bt_ll_sw_split",
+                    "status": "None"
+                }
+            ]
+        },
+        {
+            "name": "sample.bluetooth.hci_ipc.df.no_phy_coded.bt_ll_sw_split",
+            "arch": "arm",
+            "platform": "nrf5340dk/nrf5340/cpunet",
+            "path": "samples/bluetooth/hci_ipc",
+            "run_id": "fd8f79c26e6907fae3b8b7c15373fe5b",
+            "runnable": false,
+            "retries": 0,
+            "toolchain": "zephyr/gnu",
+            "status": "None",
+            "reason": "Unknown Instance status",
+            "build_time": "0.00",
+            "testcases": [
+                {
+                    "identifier": "sample.bluetooth.hci_ipc.df.no_phy_coded.bt_ll_sw_split",
+                    "status": "None"
+                }
+            ]
+        },
+        {
+            "name": "sample.bluetooth.hci_ipc.mesh.bt_ll_sw_split",
+            "arch": "arm",
+            "platform": "nrf5340dk/nrf5340/cpunet",
+            "path": "samples/bluetooth/hci_ipc",
+            "run_id": "6422c3afa08737378391c308654586e1",
+            "runnable": false,
+            "retries": 0,
+            "toolchain": "zephyr/gnu",
+            "status": "None",
+            "reason": "Unknown Instance status",
+            "build_time": "0.00",
+            "testcases": [
+                {
+                    "identifier": "sample.bluetooth.hci_ipc.mesh.bt_ll_sw_split",
+                    "status": "None"
+                }
+            ]
+        },
+        {
+            "name": "sample.bluetooth.hci_ipc",
+            "arch": "arm",
+            "platform": "nrf5340dk/nrf5340/cpunet",
+            "path": "samples/bluetooth/hci_ipc",
+            "run_id": "fc69e4aa0502d5369b99a1c115b7bf5f",
+            "runnable": false,
+            "retries": 0,
+            "toolchain": "zephyr/gnu",
+            "status": "None",
+            "reason": "Unknown Instance status",
+            "build_time": "0.00",
+            "testcases": [
+                {
+                    "identifier": "sample.bluetooth.hci_ipc",
+                    "status": "None"
+                }
+            ]
+        },
+        {
+            "name": "sample.bluetooth.hci_ipc.iso_broadcast.bt_ll_sw_split",
+            "arch": "arm",
+            "platform": "nrf5340dk/nrf5340/cpunet",
+            "path": "samples/bluetooth/hci_ipc",
+            "run_id": "2a3a66fa59089b1e278ea63eaf7e02a6",
+            "runnable": false,
+            "retries": 0,
+            "toolchain": "zephyr/gnu",
+            "status": "None",
+            "reason": "Unknown Instance status",
+            "build_time": "0.00",
+            "testcases": [
+                {
+                    "identifier": "sample.bluetooth.hci_ipc.iso_broadcast.bt_ll_sw_split",
+                    "status": "None"
+                }
+            ]
+        },
+        {
+            "name": "sample.bluetooth.hci_ipc.iso_receive.bt_ll_sw_split",
+            "arch": "arm",
+            "platform": "nrf5340dk/nrf5340/cpunet",
+            "path": "samples/bluetooth/hci_ipc",
+            "run_id": "5831073224be89742caf3b31fe376a32",
+            "runnable": false,
+            "retries": 0,
+            "toolchain": "zephyr/gnu",
+            "status": "None",
+            "reason": "Unknown Instance status",
+            "build_time": "0.00",
+            "testcases": [
+                {
+                    "identifier": "sample.bluetooth.hci_ipc.iso_receive.bt_ll_sw_split",
+                    "status": "None"
+                }
+            ]
+        },
+        {
+            "name": "sample.bluetooth.hci_ipc.bis.bt_ll_sw_split",
+            "arch": "arm",
+            "platform": "nrf5340dk/nrf5340/cpunet",
+            "path": "samples/bluetooth/hci_ipc",
+            "run_id": "9ad2cf6adebdbc644a68900753ad5958",
+            "runnable": false,
+            "retries": 0,
+            "toolchain": "zephyr/gnu",
+            "status": "None",
+            "reason": "Unknown Instance status",
+            "build_time": "0.00",
+            "testcases": [
+                {
+                    "identifier": "sample.bluetooth.hci_ipc.bis.bt_ll_sw_split",
+                    "status": "None"
+                }
+            ]
+        },
+        {
+            "name": "sample.bluetooth.hci_ipc.iso_central.bt_ll_sw_split",
+            "arch": "arm",
+            "platform": "nrf5340dk/nrf5340/cpunet",
+            "path": "samples/bluetooth/hci_ipc",
+            "run_id": "a4eeb4a7e6feca680716ea5e0e368481",
+            "runnable": false,
+            "retries": 0,
+            "toolchain": "zephyr/gnu",
+            "status": "None",
+            "reason": "Unknown Instance status",
+            "build_time": "0.00",
+            "testcases": [
+                {
+                    "identifier": "sample.bluetooth.hci_ipc.iso_central.bt_ll_sw_split",
+                    "status": "None"
+                }
+            ]
+        },
+        {
+            "name": "sample.bluetooth.hci_ipc.iso_peripheral.bt_ll_sw_split",
+            "arch": "arm",
+            "platform": "nrf5340dk/nrf5340/cpunet",
+            "path": "samples/bluetooth/hci_ipc",
+            "run_id": "51b75ce1916d616b32a35b4b42e98a23",
+            "runnable": false,
+            "retries": 0,
+            "toolchain": "zephyr/gnu",
+            "status": "None",
+            "reason": "Unknown Instance status",
+            "build_time": "0.00",
+            "testcases": [
+                {
+                    "identifier": "sample.bluetooth.hci_ipc.iso_peripheral.bt_ll_sw_split",
+                    "status": "None"
+                }
+            ]
+        },
+        {
+            "name": "sample.bluetooth.hci_ipc.cis.bt_ll_sw_split",
+            "arch": "arm",
+            "platform": "nrf5340dk/nrf5340/cpunet",
+            "path": "samples/bluetooth/hci_ipc",
+            "run_id": "83e1af52d2c3d62cb79e29f2d53b8aaa",
+            "runnable": false,
+            "retries": 0,
+            "toolchain": "zephyr/gnu",
+            "status": "None",
+            "reason": "Unknown Instance status",
+            "build_time": "0.00",
+            "testcases": [
+                {
+                    "identifier": "sample.bluetooth.hci_ipc.cis.bt_ll_sw_split",
+                    "status": "None"
+                }
+            ]
+        },
+        {
+            "name": "sample.bluetooth.hci_ipc.iso.bt_ll_sw_split",
+            "arch": "arm",
+            "platform": "nrf5340dk/nrf5340/cpunet",
+            "path": "samples/bluetooth/hci_ipc",
+            "run_id": "fdca70b683c028dd007570e43bb87f47",
+            "runnable": false,
+            "retries": 0,
+            "toolchain": "zephyr/gnu",
+            "status": "None",
+            "reason": "Unknown Instance status",
+            "build_time": "0.00",
+            "testcases": [
+                {
+                    "identifier": "sample.bluetooth.hci_ipc.iso.bt_ll_sw_split",
+                    "status": "None"
+                }
+            ]
+        },
+        {
+            "name": "sample.bluetooth.hci_ipc.df.bt_ll_sw_split",
+            "arch": "arm",
+            "platform": "nrf5340dk/nrf5340/cpunet",
+            "path": "samples/bluetooth/hci_ipc",
+            "run_id": "56eb7679b4b46dc373b895046d9602e1",
+            "runnable": false,
+            "retries": 0,
+            "toolchain": "zephyr/gnu",
+            "status": "None",
+            "reason": "Unknown Instance status",
+            "build_time": "0.00",
+            "testcases": [
+                {
+                    "identifier": "sample.bluetooth.hci_ipc.df.bt_ll_sw_split",
+                    "status": "None"
+                }
+            ]
+        },
+        {
+            "name": "sample.bluetooth.hci_ipc.df.no_phy_coded.bt_ll_sw_split",
+            "arch": "arm",
+            "platform": "nrf5340dk/nrf5340/cpunet",
+            "path": "samples/bluetooth/hci_ipc",
+            "run_id": "29f9bc8cdcf7a5e4f06a909f29de7d34",
+            "runnable": false,
+            "retries": 0,
+            "toolchain": "zephyr/gnu",
+            "status": "None",
+            "reason": "Unknown Instance status",
+            "build_time": "0.00",
+            "testcases": [
+                {
+                    "identifier": "sample.bluetooth.hci_ipc.df.no_phy_coded.bt_ll_sw_split",
+                    "status": "None"
+                }
+            ]
+        },
+        {
+            "name": "sample.bluetooth.hci_ipc.mesh.bt_ll_sw_split",
+            "arch": "arm",
+            "platform": "nrf5340dk/nrf5340/cpunet",
+            "path": "samples/bluetooth/hci_ipc",
+            "run_id": "44a6d29d3ad87b6f5503abbcedd16f21",
+            "runnable": false,
+            "retries": 0,
+            "toolchain": "zephyr/gnu",
+            "status": "None",
+            "reason": "Unknown Instance status",
+            "build_time": "0.00",
+            "testcases": [
+                {
+                    "identifier": "sample.bluetooth.hci_ipc.mesh.bt_ll_sw_split",
+                    "status": "None"
+                }
+            ]
+        }
+    ]
+}
